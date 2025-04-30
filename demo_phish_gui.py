@@ -1,4 +1,4 @@
-import pickle
+import joblib  
 import tkinter as tk
 from tkinter import messagebox
 from features import extract_features
@@ -6,9 +6,8 @@ from features import extract_features
 MODEL_PATH = "models/phishing_detector_model.pkl"
 
 def load_model(path=MODEL_PATH):
-    """Load the pickled phishing detector model."""
-    with open(path, "rb") as f:
-        return pickle.load(f)
+    """Load the phishing detector model with joblib."""
+    return joblib.load(path)
 
 def on_check():
     url = entry.get().strip()
